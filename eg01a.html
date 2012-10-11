@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<script src="getparameter.js"></script>
+
+<script>
+
+// JavaScript Regexp Tutorial Examples by Rajiv Pant http://rajiv.com/
+
+function main() {
+
+	var n, myText, myPattern, newText;
+
+	myText = "Managers are softer than software engineers.";
+
+	n=parseInt(window.location.getParameter("n"));
+	//document.write("n=" + n + "<br />"); // DEBUG
+
+
+	switch(n) {
+
+	case 1:
+
+		myPattern     = /soft/;
+		myReplacement = "hard";
+
+		break;
+
+
+	case 2:
+
+		myPattern     = /soft/g;
+		myReplacement = "hard";
+
+		break;
+
+
+	case 3:
+
+		myPattern     = /(\w+)(ware)/;
+		myReplacement = "hard$2";
+
+		break;
+
+
+	case 4:
+
+		myPattern     = /soft(?=ware)/;
+		myReplacement = "hard";
+
+		break;
+
+
+	case 5:
+
+		myPattern     = /soft(?!ware)/;
+		myReplacement = "hard";
+
+		break;
+
+
+	case 6:
+
+		myPattern     = /^(.)(.*?)(\w+)(ware)/;
+		myReplacement = "$1$2$1icro$3";
+
+		break;
+
+
+	case 7:
+		myPattern     = /\Ws.*?n/;
+		myReplacement = "";
+
+		break;
+
+
+	case 8:
+
+		myPattern     = /\b/g;
+		myReplacement = "\"";
+
+		break;
+
+
+	case 9:
+
+		myPattern     = /[aeiou]/g;
+		myReplacement = "";
+
+		break;
+
+
+	case 10:
+
+		myPattern     = /[^aeiou\s]/g;
+		myReplacement = "";
+
+		break;
+
+
+	default:
+		myPattern     = "";
+		myReplacement = "";
+
+	} // end switch
+
+
+	newText = myText.replace(myPattern, myReplacement);
+
+	//document.write(newText); // DEBUG
+	document.getElementById('myText').innerHTML=myText;
+
+	setTimeout(function() {
+		document.getElementById('myText').innerHTML=newText;
+	}, (1000));
+
+
+} // end main
+
+</script>
+
+<pre id='myText'>Managers are softer than software engineers.</pre>
+
+<script>
+main();
+</script>
+
+</body>
+</html>

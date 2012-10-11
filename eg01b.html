@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<script src="getparameter.js"></script>
+
+<script>
+
+// JavaScript Regexp Tutorial Examples by Rajiv Pant http://rajiv.com/
+
+function main() {
+
+	var n, myText, myPattern, myMatches;
+
+	myText = "Managers are softer than software engineers.";
+
+	n=parseInt(window.location.getParameter("n"));
+	//document.write("n=" + n + "<br />"); // DEBUG
+
+
+	switch(n) {
+
+	case 1:
+
+		myPattern     = /soft/;
+
+		break;
+
+
+	case 2:
+
+		myPattern     = /soft/g;
+
+		break;
+
+
+	case 3:
+
+		myPattern     = /(\w+)(ware)/;
+
+		break;
+
+
+	case 4:
+
+		myPattern     = /soft(?=ware)/;
+
+		break;
+
+
+	case 5:
+
+		myPattern     = /soft(?!ware)/;
+
+		break;
+
+
+	case 6:
+
+		myPattern     = /^(.)(.*?)(\w+)(ware)/;
+
+		break;
+
+
+	case 7:
+
+		myPattern     = /\Ws.*?n/;
+
+		break;
+
+
+	case 8:
+
+		myPattern     = /\b/g;
+
+		break;
+
+
+	case 9:
+
+		myPattern     = /[aeiou]/g;
+
+		break;
+
+
+	case 10:
+
+		myPattern     = /[^aeiou\s]/g;
+
+		break;
+		
+		
+	default:
+		myPattern     = "";
+		myReplacement = "";
+
+	} // end switch
+
+
+	myMatches = myText.match(myPattern);
+
+	document.getElementById('myText').innerHTML=myText;
+	document.getElementById('myPattern').innerHTML=myPattern;
+
+	var myMatchesPrintable = "";
+	
+	for (var i=0; i<myMatches.length; i++) {
+		myMatchesPrintable += myMatches[i] + "\n";
+	}	
+
+	document.getElementById('myMatches').innerHTML=myMatchesPrintable;
+
+
+} // end main
+
+</script>
+<h1>JavaScript RegExp Demos</h1>
+<h2>Text</h2>
+<pre id='myText'></pre>
+<h2>RegExp Pattern</h2>
+<pre id='myPattern'></pre>
+<h2>Matches</h2>
+<pre id='myMatches'></pre>
+
+
+<script>
+main();
+</script>
+
+</body>
+</html>
